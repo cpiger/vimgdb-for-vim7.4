@@ -28,7 +28,13 @@ cd /tmp
 
 patch  -p0 < vimgdb-for-vim7.4/vim74.patch
 
-cd vim74/src
+cp vimgdb-for-vim7.4/0002-mod-src-structs.h.patch vim74/
+
+cd vim74
+
+patch -p1 < ./0002-mod-src-structs.h.patch
+
+cd src
 
 make
 

@@ -1,0 +1,31 @@
+From 36297d12dc4b0ceec7e844d5339e1022125eff52 Mon Sep 17 00:00:00 2001
+From: guyuehuanyu <434342415@qq.com>
+Date: Sat, 3 Jan 2015 17:24:03 +0800
+Subject: [PATCH 2/2] mod src/structs.h
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+修复了vimgdb打补丁后执行出现段错误的问题
+
+Signed-off-by: guyuehuanyu <434342415@qq.com>
+---
+ src/structs.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/structs.h b/src/structs.h
+index e2235de..41c7110 100644
+--- a/src/structs.h
++++ b/src/structs.h
+@@ -1193,7 +1193,7 @@ struct dictitem_S
+ {
+     typval_T	di_tv;		/* type and value of the variable */
+     char_u	di_flags;	/* flags (only used for variable) */
+-    char_u	di_key[1];	/* key (actually longer!) */
++    char_u	di_key[4096];	/* key (actually longer!) */
+ };
+ 
+ typedef struct dictitem_S dictitem_T;
+-- 
+1.9.1
+
